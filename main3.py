@@ -2,14 +2,14 @@ import requests
 import datetime
 import os
 
-today=datetime.date.today()
+now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
 
-url = f'https://mypytodo-ryo-east.herokuapp.com/api/todo/?status=1,2&create_user=1&deadline={today}'
+url = f'https://mypytodo-ryo-east.herokuapp.com/api/todo/?status=1,2&create_user=1&deadline={now}'
 res = requests.get(url)
 data_json = res.json()
 
 
-message = f'今日は{today}\n期限切れのタスクが{len(data_json)}件あります\nhttps://mypytodo-ryo-east.herokuapp.com/'
+message = f'今は{now}\n期限切れのタスクが{len(data_json)}件あります\nhttps://mypytodo-ryo-east.herokuapp.com/'
 
 i = 1
 
