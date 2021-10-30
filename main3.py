@@ -3,8 +3,9 @@ import datetime
 import os
 
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+todo_url = os.environ['TODO_API_URL']
 
-url = f'https://mypytodo-ryo-east.herokuapp.com/api/todo/?status=1,2&create_user=1&deadline={now}'
+url = f'{todo_url}?status=1,2&create_user=1&deadline={now}'
 res = requests.get(url)
 data_json = res.json()
 
